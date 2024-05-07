@@ -21,7 +21,7 @@ func TestSet(t *testing.T) {
 
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
-			s.Set(tc.key, tc.value)
+			_ = s.Set(tc.key, tc.value)
 			assert.Equal(t, tc.value, s.hash[tc.key])
 		})
 	}
@@ -42,7 +42,8 @@ func TestGet(t *testing.T) {
 	for _, tc := range tt {
 		s.hash[tc.key] = tc.value
 		t.Run(tc.name, func(t *testing.T) {
-			assert.Equal(t, tc.value, s.Get(tc.key))
+			res, _ := s.Get(tc.key)
+			assert.Equal(t, tc.value, res)
 		})
 	}
 }
@@ -62,8 +63,8 @@ func TestDelete(t *testing.T) {
 	for _, tc := range tt {
 		s.hash[tc.key] = tc.value
 		t.Run(tc.name, func(t *testing.T) {
-			s.Delete(tc.key)
-			assert.Equal(t, "", s.Get(tc.key))
+			_ = s.Delete(tc.key)
+			assert.Equal(t, "", s.hash[tc.key])
 		})
 	}
 }

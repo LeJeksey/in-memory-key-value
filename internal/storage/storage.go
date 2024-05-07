@@ -1,23 +1,25 @@
 package storage
 
-type storage struct {
+type Storage struct {
 	hash map[string]string
 }
 
-func NewStorage() *storage {
-	return &storage{
+func NewStorage() *Storage {
+	return &Storage{
 		hash: make(map[string]string),
 	}
 }
 
-func (s *storage) Set(key, value string) {
+func (s *Storage) Set(key, value string) error {
 	s.hash[key] = value
+	return nil
 }
 
-func (s *storage) Get(key string) string {
-	return s.hash[key]
+func (s *Storage) Get(key string) (string, error) {
+	return s.hash[key], nil
 }
 
-func (s *storage) Delete(key string) {
+func (s *Storage) Delete(key string) error {
 	delete(s.hash, key)
+	return nil
 }
