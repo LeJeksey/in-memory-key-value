@@ -3,10 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/LeJeksey/in-memory-key-value/internal/compute"
-	"github.com/LeJeksey/in-memory-key-value/internal/storage"
 	"log"
 	"os"
+
+	"github.com/LeJeksey/in-memory-key-value/internal/compute"
+	"github.com/LeJeksey/in-memory-key-value/internal/storage"
 )
 
 func main() {

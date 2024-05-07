@@ -2,9 +2,9 @@ package compute
 
 import (
 	"fmt"
-	"github.com/golang/mock/gomock"
 	"testing"
 
+	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 )
 
